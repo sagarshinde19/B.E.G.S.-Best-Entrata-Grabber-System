@@ -22,9 +22,10 @@ https://github.com/sagarshinde19/B.E.G.S.-Best-Entrata-Grabber-System
 
 - Clone this project `git clone`
 - Go to extenion manager in chrome
-- Load the extension into the chrome
+- Switch to developer mode on extension page to load it from your system.
+- Load Pack/Unpacked extension into the chrome
 - Extension is ready to use for Entrata Settings :
-	- Left Click - Get settings hypretext path.
+	- Left Click - Get Settings Hypertext path.
 	- Right Click - Get Path/URL/Hypertext Path, Start/Stop Extension, About Us.
 
 # Licence
