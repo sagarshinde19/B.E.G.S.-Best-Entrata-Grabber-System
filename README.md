@@ -16,8 +16,15 @@ https://github.com/sagarshinde19/B.E.G.S.-Best-Entrata-Grabber-System
 
 # ScreenShot
 
-<img src="https://medialibrarycf.entrata.com/10975/MLv3/2023/02/16/031013/63ee01059a143136.png">
+<img src="https://medialibrarycf.entrata.com/10975/MLv3/2023/02/16/073913/63ee40116d8fe474.png">
+<img src="https://medialibrarycf.entrata.com/10975/MLv3/2023/02/16/074703/63ee41e70129d898.gif">
 
+# Team : B.E.G.S.
+ **B -** Benjamin Brown ,
+ **E -** Ethan Nelson ,
+ **G -** Ganesh Dongare ,
+ **S -** Sagar Shinde 
+ 
 # Installation
 
 - Clone this project `git clone`
