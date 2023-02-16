@@ -6,7 +6,8 @@ var MOUSE_VISITED_CLASSNAME = 'crx_mouse_visited';
 
 // Previous dom, that we want to track, so we can remove the previous styling.
 var prevDOM = null;
-var settingCopied = false;
+var settingCopied = true;
+var domSelectedMenu = null;
 
 // Created clipboard div to copy hypertexted entrata settings.
 var clipboardDiv = null;
@@ -67,7 +68,14 @@ document.addEventListener('click', function(e) {
 	if( settingCopied ) return true;
 	e.preventDefault();		
 	onClickCursorAnimation( e );	
-	copyHtmlToClipboard( '<a href="' + window.location.href + '" > ' + loadSelectedDOMPath() + ' </a>' );
+	if( "copy_hypertext_path" == domSelectedMenu ) {
+		copyHtmlToClipboard( '<a href="' + window.location.href + '" > ' + loadSelectedDOMPath() + ' </a>' );
+	} else if( "copy_setting_path" == domSelectedMenu ) {
+		copyHtmlToClipboard( loadSelectedDOMPath() );
+	} else if( "copy_setting_URL" == domSelectedMenu ) {
+		copyHtmlToClipboard( window.location.href );
+	}
+	settingCopied = false;
 	stopInspctingElements();
 });
 
@@ -104,27 +112,10 @@ function copyHtmlToClipboard(html) {
 }
 	
 function copyToClipboardSetting( selectedMenu ) {
-	if( settingCopied && "start_to_inspect" == selectedMenu ) {
+	if ( [ "copy_setting_path", "copy_hypertext_path", "copy_setting_URL" ].includes( selectedMenu ) ){
 		settingCopied = false;
-	} else if( !settingCopied && "stop_inspect" == selectedMenu ) {
-		settingCopied = true;
 	}
-	
-	if( "copy_setting_path" == selectedMenu ) {
-		var menuPath = loadSelectedDOMPath();
-		navigator.clipboard.writeText(menuPath);
-		stopInspctingElements();
-	}
-	
-	if( "copy_setting_URL" == selectedMenu ) {
-		navigator.clipboard.writeText( window.location.href );
-		stopInspctingElements();
-	}
-	
-	if( "copy_hypertext_path" == selectedMenu ) {
-		copyHtmlToClipboard( '<a href="' + window.location.href + '" > ' + loadSelectedDOMPath() + ' </a>' );
-		stopInspctingElements();
-	}
+	domSelectedMenu = selectedMenu;
 	
 	return true;
 }
