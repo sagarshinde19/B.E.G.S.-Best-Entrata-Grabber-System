@@ -20,7 +20,7 @@ https://github.com/sagarshinde19/B.E.G.S.-Best-Entrata-Grabber-System
 
 # Installation
 
-- Clone this project `git clone` [git url] 
+- Clone this project `git clone`
 - Go to extenion manager in chrome
 - Load the extension into the chrome
 - Extension is ready to use for Entrata Settings :
