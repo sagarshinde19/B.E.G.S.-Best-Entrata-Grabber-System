@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "B.E.G.S.[ Best Entrata Grabber System ]",
+  "version": "1.0",
+  "description" : "Copies Entrata Setting Path to Clipboard via Left-Click or Right-Click context menu",
+    "icons" : {
+        "128" : "img/icons128.png",
+        "48" : "img/icons48.png",
+        "16" : "img/icons16.png"
+    },
+  "permissions": ["tabs","background","storage", "contextMenus", "*://*.entrata.localhost/*", "*://*.entrata.localhost/*", "*://*.entratadev.com/*", "*://*.entrata.com/*", "*://*.entrata.global/*", "*://*.greystar.cn/*"],
+  "background": {
+    "scripts": ["bg.js"],
+    "css": ["main.css"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.entrata.localhost/*", "*://*.entrata.localhost/*", "*://*.entratadev.com/*", "*://*.entrata.com/*", "*://*.entrata.global/*", "*://*.greystar.cn/*"],
+      "css": ["style.css"],
+      "js": ["core.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "browser_action": {
+    "default_title": "B.E.G.S.",
+    "default_icon": "img/icons16.png"
+  }
+}
