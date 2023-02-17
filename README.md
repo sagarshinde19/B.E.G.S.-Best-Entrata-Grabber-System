@@ -12,12 +12,16 @@ The project is Chrome Extension For Copy Entrata Setting Path to Clipboard via L
 The project is Chrome Extension For Copy Entrata Setting Path to Clipboard via Left-Click or Right-Click Context Menu
 
 ### Read the article
-https://github.com/sagarshinde19/B.E.G.S.-Best-Entrata-Grabber-System
+https://sites.google.com/entrata.com/neveragain/the-dream
 
 # ScreenShot
+Extension Right Click Options:
 
-<img src="https://medialibrarycf.entrata.com/10975/MLv3/2023/02/16/073913/63ee40116d8fe474.png">
-<img src="https://medialibrarycf.entrata.com/10975/MLv3/2023/02/16/074703/63ee41e70129d898.gif">
+<img src="https://medialibrarycf.entrata.com/10975/MLv3/2023/02/16/073535/63eee7f79a36d585.png">
+
+Entrata Settings Right Click Context Menu:
+
+<img src="https://medialibrarycf.entrata.com/10975/MLv3/2023/02/16/073536/63eee7f81000f456.png">
 
 # Team : B.E.G.S.
  **B -** Benjamin Brown ,
@@ -31,9 +35,9 @@ https://github.com/sagarshinde19/B.E.G.S.-Best-Entrata-Grabber-System
 - Go to extension manager `chrome://extensions/` in chrome
 - Switch to developer mode on extension page to load it from your system.
 - Load Pack/Unpacked extension into the chrome
-- Extension is ready to use for Entrata Settings :
-	- Left Click - Get Settings Hypertext path.
-	- Right Click - Get Path/URL/Hypertext Path, Start/Stop Extension, About Us.
+- Extension is ready to use for Entrata Settings:
+	1. Right Click on any setting or Extension logo to select a copy option. 
+	2. Left click on any setting to copy setting path on clipboard.
 
 # Licence
 
