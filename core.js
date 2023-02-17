@@ -128,30 +128,43 @@ function stopInspctingElements() {
 function loadSelectedDOMPath() {
 	var menuPath = '';
 	var propertyMenu = document.getElementById( "settings_navigation_content" );
-	var settingLocation = window.location.href;
-
-	if( settingLocation.match(/website_settingsxxx/g) != null ) {
-				menuPath += 'Setup >> Websites >> [ Select Website ] >> ';
-	}else if( settingLocation.match(/properties_setupxxx/g) != null ){
-				menuPath += 'Setup >> Properties >> [ Select Property ] >> ';
-	}else if( settingLocation.match(/general_general_setupxxx/g) != null ){
+	
+	const urlParams = new URLSearchParams(window.location.search);
+	const module = urlParams.get("module");
+	
+	if (module === "website_settingsxxx") {
+				menuPath += 'Setup >> Websites >> [ Select a Website ] >> ';
+	}else if (module === "properties_setupxxx") {
+				menuPath += 'Setup >> Properties >> [ Select a Property ] >> ';
+	}else if (module === "general_general_setupxxx") {
 				menuPath += 'Setup >> Company >> ';
-	}else if( settingLocation.match(/users_and_groupsxxx/g) != null ){
-				menuPath += 'Setup >> Users & Groups >> [ Select User/Group ] >> ';
-	}else if( settingLocation.match(/setupxxx/g) != null ){
+	}else if (module === "users_and_groupsxxx") {
+				menuPath += 'Setup >> Users & Groups >> [ Select a User/Group ] >> ';
+	}else if (module === "setupxxx") {
 				menuPath += 'Setup >> ';
 	}else{
 			// Generic path if any
 	}
 	
 	if( propertyMenu && propertyMenu.querySelectorAll('.selected') ) {
-		propertyMenu.querySelectorAll('.selected').forEach(function (selectedMenu) {
-			menuPath += selectedMenu.textContent.replace(/(?:\r\n|\r|\n)/g, '') + ' >> ';
-		});
+        /** -- Adding selected property name here -- */
+		var propertyName = '';
+		if (module === "properties_setupxxx") {
+			var propertyNameSelector = document.getElementById("property_listing");	
+
+			if( propertyNameSelector && propertyNameSelector.querySelectorAll('.selected') ) {
+				propertyNameSelector.querySelectorAll('.selected').forEach(function (selectedMenu) {
+					propertyName = selectedMenu.textContent.replace(/(?:\r\n|\r|\n)/g, '');
+				});
+			}
+			menuPath += propertyName + ' >> ';
+		}
 	}
+	
 	if( prevDOM ) {
-		menuPath += prevDOM.textContent.replace(/(?:\r\n|\r|\n)/g, '');
-	}
+        var menuPathWithColon = prevDOM.textContent.replace(/(?:\r\n|\r|\n)/g, '');
+        menuPath += menuPathWithColon.split(":")[0];
+    }
 
 	return menuPath;
 }

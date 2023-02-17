@@ -2,19 +2,19 @@
 
 chrome.contextMenus.create({
     id: "copy_setting_path",
-    title: "Copy Setting Path",
+    title: "🥕 Copy Setting Path",
     contexts: ["all"]
 });
 
 chrome.contextMenus.create({
     id: "copy_hypertext_path",
-    title: "Copy Hypertext Path",
+    title: "⚓ Copy Hypertext Path",
     contexts: ["all"]
 });
 
 chrome.contextMenus.create({
     id: "copy_setting_URL",
-    title: "Copy Plain URL",
+    title: "🔗 Copy URL",
     contexts: ["all"]
 });
 				
