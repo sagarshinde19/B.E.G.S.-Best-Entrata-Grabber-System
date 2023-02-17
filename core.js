@@ -1,5 +1,5 @@
 'use strict';
-console.log('core.js called');
+
 // when mouse up, send message to background.js with this position
 // Unique ID for the className.
 var MOUSE_VISITED_CLASSNAME = 'crx_mouse_visited';
@@ -38,13 +38,11 @@ document.body.appendChild(clipboardDiv);
 document.addEventListener('mousemove', function (e) {
 	if( settingCopied ) return true;
 	var srcElement = e.srcElement;
-	//console.log(srcElement);
 
 	var strTarget = e.target;
-	//console.log(strTarget + '>> ' + srcElement.nodeName);
 
 	// Lets check if our underlying element is a DIV.
-	if (  srcElement.nodeName == 'DIV' && 100 < srcElement.offsetWidth ) {
+	if (  ( srcElement.nodeName == 'DIV' || srcElement.nodeName == 'TR' ) && 100 < srcElement.offsetWidth ) {
 
 	// For NPE checking, we check safely. We need to remove the class name
 	// Since we will be styling the new one after.
@@ -130,6 +128,22 @@ function stopInspctingElements() {
 function loadSelectedDOMPath() {
 	var menuPath = '';
 	var propertyMenu = document.getElementById( "settings_navigation_content" );
+	var settingLocation = window.location.href;
+
+	if( settingLocation.match(/website_settingsxxx/g) != null ) {
+				menuPath += 'Setup >> Websites >> [ Select Website ] >> ';
+	}else if( settingLocation.match(/properties_setupxxx/g) != null ){
+				menuPath += 'Setup >> Properties >> [ Select Property ] >> ';
+	}else if( settingLocation.match(/general_general_setupxxx/g) != null ){
+				menuPath += 'Setup >> Company >> ';
+	}else if( settingLocation.match(/users_and_groupsxxx/g) != null ){
+				menuPath += 'Setup >> Users & Groups >> [ Select User/Group ] >> ';
+	}else if( settingLocation.match(/setupxxx/g) != null ){
+				menuPath += 'Setup >> ';
+	}else{
+			// Generic path if any
+	}
+	
 	if( propertyMenu && propertyMenu.querySelectorAll('.selected') ) {
 		propertyMenu.querySelectorAll('.selected').forEach(function (selectedMenu) {
 			menuPath += selectedMenu.textContent.replace(/(?:\r\n|\r|\n)/g, '') + ' >> ';
@@ -138,6 +152,6 @@ function loadSelectedDOMPath() {
 	if( prevDOM ) {
 		menuPath += prevDOM.textContent.replace(/(?:\r\n|\r|\n)/g, '');
 	}
-	
+
 	return menuPath;
 }
