@@ -1,6 +1,7 @@
 
 #settings_content .aRow.crx_mouse_visited, #settings_content .bRow.crx_mouse_visited,
 #settings_content .aRow .crx_mouse_visited, #settings_content .bRow .crx_mouse_visited,
+#settings_content .crx_mouse_visited tr:hover, #settings_content .crx_mouse_visited tr:hover,
 #add_edit_user_container .aRow.crx_mouse_visited, #add_edit_user_container .bRow.crx_mouse_visited,
 #add_edit_group_container .aRow.crx_mouse_visited, #add_edit_group_container .bRow.crx_mouse_visited,
 #settings_content tr.crx_mouse_visited, #settings_content tr.crx_mouse_visited,
@@ -12,7 +13,13 @@
 #create_or_edit_list_item .aRow.crx_mouse_visited, #create_or_edit_list_item .bRow.crx_mouse_visited,
 #create_or_edit_list_item .aRow .crx_mouse_visited, #create_or_edit_list_item .bRow .crx_mouse_visited,
 #company_setup_container .aRow.crx_mouse_visited, #company_setup_container .bRow.crx_mouse_visited,
-#company_setup_container .aRow .crx_mouse_visited, #company_setup_container .bRow .crx_mouse_visited
+#company_setup_container .aRow .crx_mouse_visited, #company_setup_container .bRow .crx_mouse_visited,
+#floorplan_container .aRow.crx_mouse_visited, #floorplan_container .bRow.crx_mouse_visited,
+#floorplan_container .aRow .crx_mouse_visited, #floorplan_container .bRow .crx_mouse_visited,
+#units_container .aRow.crx_mouse_visited, #units_container .bRow.crx_mouse_visited,
+#units_container .aRow .crx_mouse_visited, #units_container .bRow .crx_mouse_visited,
+#div_building_general .aRow.crx_mouse_visited, #div_building_general .bRow.crx_mouse_visited,
+#div_building_general .aRow .crx_mouse_visited, #div_building_general .bRow .crx_mouse_visited
  {
   background-color: rgba(255, 0, 0, 0.2) !important;
   outline: 1px solid rgba(255, 0, 0, 0.6) !important;
