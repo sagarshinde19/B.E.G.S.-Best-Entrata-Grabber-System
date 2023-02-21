@@ -146,8 +146,8 @@ function loadSelectedDOMPath() {
 			// Generic path if any
 	}
 	
-	if( propertyMenu && propertyMenu.querySelectorAll('.selected') ) {
-        /** -- Adding selected property name here -- */
+	/*if( propertyMenu && propertyMenu.querySelectorAll('.selected') ) {
+        // Adding selected property name here
 		var propertyName = '';
 		if (module === "properties_setupxxx") {
 			var propertyNameSelector = document.getElementById("property_listing");	
@@ -159,6 +159,12 @@ function loadSelectedDOMPath() {
 			}
 			menuPath += propertyName + ' >> ';
 		}
+	}*/
+	
+	if( propertyMenu && propertyMenu.querySelectorAll('.selected') ) {
+		propertyMenu.querySelectorAll('.selected').forEach(function (selectedMenu) {
+			menuPath += selectedMenu.textContent.replace(/(?:\r\n|\r|\n)/g, '') + ' >> ';
+		});
 	}
 	
 	if( prevDOM ) {
